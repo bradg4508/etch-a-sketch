@@ -11,8 +11,11 @@ for (let i = 0; i < 16; i++) {
         const square = document.createElement("div");
         square.classList.add("square");
         row.appendChild(square);
-    }    
+    }
+    row.style.cssText = "grid-template-columns: repeat(16,1fr)";
 }
+
+
 
 // Set up a “hover” effect so that the grid divs change color when the mouse passes over them, 
 // It will leave a (pixelated) trail through the grid like a pen would

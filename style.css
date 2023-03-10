@@ -4,26 +4,17 @@ body {
     box-sizing: border-box;
 }
 
-.container,
-.row {
-    display: flex;
-}
-
-.row,
-.square {
-    flex: 1;
-}
-
 .container {
-    flex-flow: column wrap;
     border: 20px solid black;
+    height: 500px;
+    width: 500px;
 }
 
 .row {
-    border: 1px solid red;
+    display: grid;
 }
 
 .square {
     border: 1px solid #bdbdbd;
-    height: 50px;
+    aspect-ratio: 1 / 1;
 }
