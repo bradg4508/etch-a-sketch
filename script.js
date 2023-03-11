@@ -1,10 +1,5 @@
 // Etch-a-Sketch
 
-// Prompt the user to enter the number of squares on each side of the grid layout
-// The user will receive the prompt after pressing a button
-const button = document.querySelector("button");
-button.addEventListener("click", createGrid);
-
 // Set up a “hover” effect so that the grid divs change color when the mouse passes over them, 
 // It will leave a (pixelated) trail through the grid like a pen would
 function hover () {
@@ -18,9 +13,21 @@ function hover () {
 
 // Create a webpage with a grid of square divs
 // Create the divs using JavaScript
-function createGrid () {
+function newGrid () {
     const div = document.querySelector("div.container");
-    const gridSize = +prompt("How many squares per side would you like for your grid?");
+    div.textContent = "";
+    div.style.cssText = "display: block";
+    let gridSize = prompt("How many squares per side would you like for your grid?\nEnter a number between 1 and 100");
+    // while () {
+    // }
+
+    // For WHILE condition: type / Number(input)
+    // CANCEL -> object / 0
+    // Empty string -> string / 0
+    // Negative numbers (-4) -> string / -4
+    // Number (4) -> string / 4
+    // Decimal (4.4) -> string / 4.4
+
     for (let i = 0; i < gridSize; i++) {
         const row = document.createElement("div");
         row.classList.add("row");
@@ -32,7 +39,12 @@ function createGrid () {
         }
         row.style.cssText = `grid-template-columns: repeat(${gridSize},1fr)`;
     }
-    
+        
     hover();
 
 }
+
+// Prompt the user to enter the number of squares on each side of the grid layout
+// The user will receive the prompt after pressing a button
+const button = document.querySelector("button");
+button.addEventListener("click", newGrid);
