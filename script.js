@@ -12,21 +12,16 @@ function hover () {
 }
 
 // Create a webpage with a grid of square divs
-// Create the divs using JavaScript
+// Create the divs using JavaScript if the user enters a valid grid number
 function newGrid () {
     const div = document.querySelector("div.container");
+    let gridSize = +prompt("How many squares per side would you like for your grid?\nEnter an integer between 1 and 100");
+    while (!Number.isInteger(gridSize) || (gridSize < 1 && gridSize !== 0)|| gridSize > 100) {
+        gridSize = +prompt("Please enter a valid integer between 1 and 100");
+    }
+
     div.textContent = "";
     div.style.cssText = "display: block";
-    let gridSize = prompt("How many squares per side would you like for your grid?\nEnter a number between 1 and 100");
-    // while () {
-    // }
-
-    // For WHILE condition: type / Number(input)
-    // CANCEL -> object / 0
-    // Empty string -> string / 0
-    // Negative numbers (-4) -> string / -4
-    // Number (4) -> string / 4
-    // Decimal (4.4) -> string / 4.4
 
     for (let i = 0; i < gridSize; i++) {
         const row = document.createElement("div");
