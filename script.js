@@ -6,14 +6,14 @@ function hover () {
     const squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
         square.addEventListener("mouseenter", () => {
-            square.style.cssText = "background-color: #bdbdbd";
+            square.style.cssText = "background-color: #868e96";
         });
     });
 }
 
 // Create a webpage with a grid of square divs
 // Create the divs using JavaScript if the user enters a valid grid number
-function newGrid () {
+function makeNewGrid () {
     const div = document.querySelector("div.container");
     let gridSize = +prompt("How many squares per side would you like for your grid?\nEnter an integer between 1 and 100");
     while (!Number.isInteger(gridSize) || (gridSize < 1 && gridSize !== 0)|| gridSize > 100) {
@@ -42,4 +42,4 @@ function newGrid () {
 // Prompt the user to enter the number of squares on each side of the grid layout
 // The user will receive the prompt after pressing a button
 const button = document.querySelector("button");
-button.addEventListener("click", newGrid);
+button.addEventListener("click", makeNewGrid);
