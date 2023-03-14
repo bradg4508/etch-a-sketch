@@ -17,19 +17,19 @@ header {
     justify-content: center;
     align-items: center;
     padding: 25px;
-    background: #374af5;
+    background: rgb(55, 74, 245);
 }
 
 button {
     padding: 5px 10px;
-    background-color: #374af5;
+    background: rgb(55, 74, 245);
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 20px solid #374af5;
+    border: 10px solid rgb(55, 74, 245);
     width: 400px;
     height: 400px;
 }
@@ -44,6 +44,6 @@ p {
 }
 
 .square {
-    border: 1px solid #a39c9c;
+    border: 1px solid rgb(163, 156, 156);
     aspect-ratio: 1 / 1;
 }
