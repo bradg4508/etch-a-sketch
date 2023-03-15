@@ -25,11 +25,16 @@ header {
     padding: 25px;
 }
 
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
 button {
     padding: 5px 10px;
 }
 
-.container {
+.info-container {
     display: flex;
     justify-content: center;
     align-items: center;
