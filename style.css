@@ -11,25 +11,29 @@ body {
 
 }
 
+header,
+button {
+    color: rgb(255, 255, 255);
+    background: rgb(32, 48, 184);
+}
+
 header {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     padding: 25px;
-    background: rgb(55, 74, 245);
 }
 
 button {
     padding: 5px 10px;
-    background: rgb(55, 74, 245);
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 10px solid rgb(55, 74, 245);
+    border: 10px solid rgb(32, 48, 184);;
     width: 400px;
     height: 400px;
 }
