@@ -44,6 +44,16 @@ function colorHover() {
     });
 }
 
+function reset() {
+    const reset = document.querySelector("#reset");
+    reset.addEventListener("click", () => {
+        const squares = document.querySelectorAll(".square");
+        squares.forEach((square) => {
+            square.style.cssText = "background: rgb(255,255,255)";
+        });
+    });
+}
+
 // Create a webpage with a grid of square divs
 // Create the divs using JavaScript if the user enters a valid grid number
 function makeNewGrid() {
@@ -75,6 +85,7 @@ function makeNewGrid() {
 
     shadeHover();
     colorHover();
+    reset();
 }
 
 // Prompt the user to enter the number of squares on each side of the grid layout
