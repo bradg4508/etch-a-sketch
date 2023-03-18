@@ -1,1 +1,3 @@
 # etch-a-sketch
+
+This classic Etch-a-Sketch webpage will allow users to enter a value to generate a grid up to 100x100 squares. After selecting a grid size, the user can continue to sketch using the classic shading of a typical Etch-a-Sketch device. Or, they can choose to generate a random color for each square as they move their mouse over the grid area. There is also a reset option for users to start over with their currently selected grid size. The user can always choose to start over with another grid size by selecting the "New Grid Size" button just as they would after initially launching the webpage.
