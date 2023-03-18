@@ -12,6 +12,12 @@ function randomizeSquareColor(e) {
     e.target.style.cssText = `background: rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
 }
 
+function resetShading() {
+    for (let i = 0; i < (div.childElementCount*div.childElementCount); i++) {
+        gridSquares[i] = 0;
+    }
+}
+
 // Make the squares get darker after each pass by the user's mouse
 // After 10 passes, the shade of the square will be completely black
 function increaseShadeOfSquare(e) {
@@ -25,30 +31,43 @@ function increaseShadeOfSquare(e) {
     }
 }
 
-// Set up a “hover” effect so that the grid divs change color when the mouse passes over them, 
+// Set up a “hover” effect so that the grid divs increase in darkness of shade as the mouse passes over them
 // It will leave a (pixelated) trail through the grid like a pen would
 function shadeHover() {
-    const squares = document.querySelectorAll(".square");
-    squares.forEach((square) => {
-        square.addEventListener("mouseenter", increaseShadeOfSquare);
+    const classicButton = document.querySelector("#classic-shade");
+    classicButton.addEventListener("click", () => {
+        const squares = document.querySelectorAll(".square");
+        squares.forEach((square) => {
+            square.removeEventListener("mouseenter", randomizeSquareColor);
+            square.addEventListener("mouseenter", increaseShadeOfSquare);
+        });
     });
 }
 
+// Set up a “hover” effect so that the grid divs change to a random color when the mouse passes over them
+// It will leave a (pixelated) trail through the grid like a pen would
 function colorHover() {
     const randButton = document.querySelector("#random-color");
     randButton.addEventListener("click", () => {
         const squares = document.querySelectorAll(".square");
+        resetShading();
         squares.forEach((square) => {
+            square.removeEventListener("mouseenter", increaseShadeOfSquare);
             square.addEventListener("mouseenter", randomizeSquareColor);
         });
     });
 }
 
+// Create a button to reset the current grid by clearing all squares so that they all have a white background
 function reset() {
     const reset = document.querySelector("#reset");
     reset.addEventListener("click", () => {
         const squares = document.querySelectorAll(".square");
+        resetShading();
         squares.forEach((square) => {
+            square.removeEventListener("mouseenter", increaseShadeOfSquare);
+            square.removeEventListener("mouseenter", randomizeSquareColor);
+            square.addEventListener("mouseenter", increaseShadeOfSquare);
             square.style.cssText = "background: rgb(255,255,255)";
         });
     });
@@ -79,9 +98,12 @@ function makeNewGrid() {
         }
         row.style.cssText = `grid-template-columns: repeat(${gridSize},1fr)`;
     }
-    for (let i = 0; i < (div.childElementCount*div.childElementCount); i++) {
-        gridSquares[i] = 0;
-    } 
+    resetShading();
+
+    const squares = document.querySelectorAll(".square");
+    squares.forEach((square) => {
+        square.addEventListener("mouseenter", increaseShadeOfSquare);
+    });
 
     shadeHover();
     colorHover();
